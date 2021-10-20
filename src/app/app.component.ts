@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,25 +6,34 @@ import { interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'stopwatch';
-  
+  title = 'Stopwatch';
+  showReset = false;
+  showStop = false;
+  showLap = true;
+  showStart = true;
   interval:any;
   time = new Date(0);
 
   startTimer(){
+    this.showReset = false;
+    this.showStop = true;
+    this.showStart = false;
+    this.showLap = true;
     this.interval = setInterval(() => {
       this.time.setSeconds(this.time.getSeconds() + 1);
     }, 1000);
   }
 
   pauseTimer(){
+    this.showReset = true;
+    this.showStart = true;
+    this.showLap = false;
+    this.showStop = false;
     clearInterval(this.interval);
     }
 
   resetTimer(){
     this.time.setSeconds(0);
-    this.time.setMinutes(0);
-    this.time.setHours(0);  
   }
 
 }
