@@ -356,25 +356,4 @@
     }
   }
 </style>
-
-<div class="content" role="main">
-  <div class="parentCard">
-    <p>{{title}}</p>
-    <div class="card">
-      <p>{{time.toISOString().substr(11, 8)}}</p>
-    </div>
-    <p>
-      <span class="pr-20">Hours</span>
-      <span>Mins</span> 
-      <span class="pl-20">Secs</span>
-    </p>
-    
-    <div class="bgCard card card-small ">
-      <p *ngIf = "showStart"><button class= "btn green" (click)="startTimer()">Start</button> </p>
-      <p *ngIf = "showStop"><button class= "btn red" (click)="pauseTimer()">Stop</button> </p>
-      <p *ngIf = "showLap"><button class= "btn">Lap</button> </p>
-      <p *ngIf = "showReset"><button  class= "btn"  (click)="resetTimer()">Reset</button> </p>
-    </div>
-  </div>
-
-</div>
+<router-outlet></router-outlet>

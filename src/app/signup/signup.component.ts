@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+
+
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
-// import { AlertService, AuthenticationService } from '@/_services';
-
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./app.component.css']
-  })
-export class LoginComponent {
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
+})
+
+export class SignupComponent {
     loginForm!: FormGroup;
     loading = false;
     submitted = false;
@@ -52,6 +52,8 @@ export class LoginComponent {
         if (this.loginForm.invalid) {
             return;
         }
+
+        this.router.navigate(['home']);
 
         // this.loading = true;
         // this.authenticationService.login(this.f.username.value, this.f.password.value)
