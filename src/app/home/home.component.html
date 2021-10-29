@@ -403,7 +403,7 @@ li a:hover:not(.active) {
     <div class="parentCard">
       <p>{{title}}</p>
       <div class="card">
-        <p>{{time.toISOString().substr(11, 8)}}</p>
+        <p>{{format(hh)}}:{{format(mm)}}:{{format(ss)}}</p>
       </div>
       <p>
         <span class="pr-20">Hours</span>

@@ -12,16 +12,27 @@ export class HomeComponent {
   showStop = false;
   showLap = true;
   showStart = true;
-  interval:any;
   time = new Date(0);
+  mm = 0;
+  ss = 0;
+  hh = 0;
+  timerId: any;
+
+  format(num: number) {
+    return (num + '').length === 1 ? '0' + num : num + '';
+  }
 
   startTimer(){
     this.showReset = false;
     this.showStop = true;
     this.showStart = false;
     this.showLap = true;
-    this.interval = setInterval(() => {
-      this.time.setSeconds(this.time.getSeconds() + 1);
+    this.timerId = setInterval(() => {
+      this.ss++;
+      if (this.ss >= 60) {
+        this.mm++;
+        this.ss = 0;
+      }
     }, 1000);
   }
 
@@ -30,11 +41,13 @@ export class HomeComponent {
     this.showStart = true;
     this.showLap = false;
     this.showStop = false;
-    clearInterval(this.interval);
+    clearInterval(this.timerId);
     }
 
   resetTimer(){
-    this.time.setSeconds(0);
+    this.hh =0;
+    this.mm=0;
+    this.ss=0; 
   }
 
 }
